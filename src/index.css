@@ -1,3 +1,47 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+/* Custom retro effects */
+@layer components {
+  .retro-text {
+    font-family: 'Orbitron', monospace;
+    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+  
+  .retro-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  .neon-glow {
+    filter: drop-shadow(0 0 2px currentColor) drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor);
+  }
+  
+  .retro-scanlines {
+    position: relative;
+  }
+  
+  .retro-scanlines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.03) 2px,
+      rgba(255, 255, 255, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 1000;
+  }
+}
